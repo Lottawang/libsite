@@ -1,0 +1,31 @@
+{% extends 'libapp/base.html' %}
+{% block body_block %}
+    <div align="center">
+<div style="width: 25%; align-items: center; padding-top: 3%" align="center">
+    <div class="col s12 z-depth-5 card-panel">
+        <h4>Registration Form!</h4><br/><br/>
+        <div style="width: 75%">
+            <form action="." method="post">{% csrf_token %}{{ form.as_p }}<br/>
+            <br><input type="submit" value="Submit" class="btnpink col s12"/>
+        </form>
+            </div>
+    </div>
+    </div>
+</div>
+{% endblock %}
+
+{#{% extends 'libapp/base.html' %}#}
+{#{% block body_block %}#}
+{#    <div align="center">#}
+{#<div style="width: 45%; align-items: center; padding-top: 3%" align="center">#}
+{#    <div class="row">#}
+{#        <h4>Registration Form!</h4><br/><br/>#}
+{#        <div style="width: 75%">#}
+{#            <form class="form-row" action="." method="post">{% csrf_token %}{{ form.as_p }}<br/>#}
+{#            <br><input type="submit" value="Submit" class="button"/>#}
+{#        </form>#}
+{#            </div>#}
+{#    </div>#}
+{#    </div>#}
+{#</div>#}
+{#{% endblock %}#}

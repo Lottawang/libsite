@@ -1,0 +1,118 @@
+{#<!DOCTYPE html>#}
+{#{% load staticfiles %}#}
+{##}
+{#<html>#}
+{#    <head>#}
+{#        <link rel="stylesheet" type="text/css" href="{% static 'libapp/style.css' %}" />#}
+{#        <title>MAC Library APP - {% block title %}Welcome!{% endblock %}</title>#}
+{#    </head>#}
+{##}
+{#    <body>#}
+{#        <div>#}
+{#            {% if request.user.username %}#}
+{#            <ul>#}
+{#                <li><a href="{% url 'libapp:myitems' %}">My Items</a></li>#}
+{#                <li><a href="{% url 'libapp:logout' %}">Logout</a></li>#}
+{#            </ul>#}
+{#            {% else %}#}
+{#                <li><a href = "{% url 'libapp:login' %}">Login</a></li>#}
+{#                <li><a href = "{% url 'libapp:register' %}">Register</a></li>#}
+{#            {% endif %}#}
+{#        </div>#}
+{#        <div>#}
+{##}
+{#            <h1>{% block myhdg %}Hello {{ request.user.first_name }} {{ request.user.last_name }} {% endblock %}</h1>#}
+{#        <hr />#}
+{#        <hr />#}
+{#            {% block body_block %}*** {% endblock %}#}
+{##}
+{#        </div>#}
+{#        <hr />#}
+{#        <hr />#}
+{#        <div>#}
+{#            <ul>#}
+{#                <br>#}
+{#                <li class="hbar1"><a href="/libapp/about/"> About this site</a></li>#}
+{#                <br>#}
+{#                <br>#}
+{#                <br>#}
+{#                <li class="hbar1"><a href = "{% url 'libapp:index' %}">Return to main page</a></li>#}
+{#                <br>#}
+{#                <br>#}
+{#                <br>#}
+{#                <li class="hbar1"><a href="/libapp/suggestions/">Suggestions</a></li>#}
+{#                <br>#}
+{#                <br>#}
+{#                <br>#}
+{#                <li class="hbar1"><a href="/libapp/searchlib/">Searchitems</a></li>#}
+{#                <br>#}
+{#                <br>#}
+{#                <br>#}
+{#                <li class="hbar1"><a href="/libapp/newitem/">Newitems</a></li>#}
+{#                <br>#}
+{#                <br>#}
+{#                <br>#}
+{#            </ul>#}
+{#        </div>#}
+{#    </body>#}
+{#</html>#}
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'libapp/css/foundation.css' %}" />
+        <title>MAC Library APP - {% block title %}Welcome!{% endblock %}</title>
+    </head>
+
+    <body>
+            <div class="top-bar">
+            <div class="top-bar-left">
+            <ul class="menu">
+                <li><a href="/libapp/about/"><strong>About this site</strong></a></li>
+                <li><a href = "{% url 'libapp:index' %}">Return to main page</a></li>
+                <li><a href="/libapp/suggestions/">Suggestions</a></li>
+                <li><a href="/libapp/searchlib/">Searchitems</a></li>
+                <li><a href="/libapp/newitem/">Newitems</a></li>
+            </ul>
+             </div>
+                <div class="top-bar-right">
+                    {% if request.user.username %}
+        <ul class="menu">
+                <li><a href="{% url 'libapp:myitems' %}">My Items</a></li>
+                <li><a class="button" href="{% url 'libapp:logout' %}">Logout</a></li>
+        </ul>
+                    {% else %}
+                        <ul class="menu">
+                     <li><a class="button" href = "{% url 'libapp:login' %}">Login</a></li>
+                <li><a href = "{% url 'libapp:register' %}">Register</a></li>
+                          </ul>
+            {% endif %}
+        </div>
+        </div>
+            <div class="row">
+        <div id="wrapper">
+        <div class="column row">
+            <img style="height:200px;width:1260px;" src="{% static 'libapp/img/night.jpeg' %}">
+
+            <h4 class="subheader">{% block myhdg %}Hello {{ request.user.first_name }} {{ request.user.last_name }} {% endblock %}</h4>
+
+                <hr />
+        <hr />
+            {% block body_block %}*** {% endblock %}
+        </div>
+        </div>
+        <hr />
+        <hr />
+
+</div>
+
+    <script>
+    $(document).foundation();
+    </script>
+    <script src="{% static 'libapp/js/vendor/jquery.min.js' %}"></script>
+    <script src="{% static 'libapp/js/vendor/what-input.min.js'%}"></script>
+    <script src="{% static 'libapp/js/foundation.min.js'%}"></script>
+    </body>
+
+</html>

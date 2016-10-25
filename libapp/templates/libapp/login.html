@@ -1,0 +1,15 @@
+{% extends 'libapp/base.html' %}
+
+{% block body_block %}
+{#    <form method="post" action="/libapp/login/">{% csrf_token %}#}
+{#    <input type="text" placeholder="Username" name="username"><br>#}
+{#    <input type="text" placeholder="Password" name="password"><br>#}
+{#    <input type="submit" value="submit">#}
+{#    </form>#}
+    <form action="." method="post" class="form-row" style="width:30%">{% csrf_token %}
+        {{ form.as_p }}<br/>
+        <button type="submit" class="button" value="LogIN">Login</button><br/>
+
+        </form>
+{% endblock %}
+

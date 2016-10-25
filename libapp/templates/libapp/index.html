@@ -1,0 +1,54 @@
+{#{% extends 'libapp/base.html' %}#}
+{##}
+{#{% block body_block %}#}
+{#    {% if itemlist %}#}
+{#        <h2>List of Library items</h2>#}
+{#        <ol>#}
+{#            {% for item in itemlist %}#}
+{#                <li><a href="/libapp/{{ item.id }}" >{{ item.itemtype }}:  {{ item}}</a> </li>#}
+{#            {% endfor %}#}
+{#        </ol>#}
+{##}
+{#    {% else %}#}
+{#        <strong>There are no available items!</strong>#}
+{#    {% endif %}#}
+{#    {% if luckynum  %}#}
+{#        <p>Your lucky number is: {{ request.session.luckynum }}</p>#}
+{#        {% else %}#}
+{#        <p>Your lucky number is: 0</p>#}
+{#    {% endif %}#}
+{#{% endblock %}#}
+{% extends 'libapp/base.html' %}
+
+{% block body_block %}
+
+    <div class="large-8 large-centered columns">
+    {% if itemlist %}
+        <h4 class="subheader">List of Library items</h4>
+        <ol>
+            {% for item in itemlist %}
+                <div class="row medium-8 large-7 columns">
+                <div class="blog-post">
+
+                <li><a href="/libapp/{{ item.id }}" ><span class="success badge">{{ item.itemtype }}</span>:  {{ item}}</a>
+                </div>
+                </div>
+            {% endfor %}
+        </ol>
+
+    {% else %}
+        <strong>There are no available items!</strong>
+    {% endif %}
+    <div class="warning callout" style="width:30%">
+    {% if luckynum  %}
+
+        <p>Your lucky number is: {{ request.session.luckynum }}</p>
+        {% else %}
+        <p>Your lucky number is: 0</p>
+
+    {% endif %}
+    </div>
+    </div>
+
+
+{% endblock %}

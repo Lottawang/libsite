@@ -1,0 +1,15 @@
+
+{% extends 'libapp/base.html' %}
+{% block body_block %}
+
+<h2>Detail of Suggestion Item</h2>
+<div class="primary callout" style="width:35%;">
+Title : {{ item.title }}<br>
+Publication year:{{ item.pubyr }}<br>
+Type:{{ item.type }}<br>
+Cost:  {{ item.cost }}<br>
+Num_interested:{{ item.num_interested }}<br>
+Comments:  {{ item.comments }}<br>
+</div>
+
+{% endblock %}

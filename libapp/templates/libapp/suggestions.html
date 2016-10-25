@@ -1,0 +1,16 @@
+{% extends 'libapp/base.html' %}
+{% block body_block %}
+<div class="primary callout" style="width:35%;">
+     <ol>
+        {% for slist in itemlist %}
+            <li><a href="/libapp/suggestionsdetails/{{ slist.id }}" >{{ slist.title }}</a> </li>
+        {% endfor %}
+     </ol>
+</div>
+
+
+
+
+{% endblock %}
+
+
